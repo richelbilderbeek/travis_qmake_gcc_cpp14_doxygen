@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Check if everything is documented, from https://stackoverflow.com/a/12041646:
+echo "/*! \\file */" >> main.cpp 
+
+doxygen -g > /dev/null; ( cat Doxyfile ; echo "QUIET=YES"; echo "EXCLUDE=README.md" ; echo "WARN_AS_ERROR=YES") | doxygen -

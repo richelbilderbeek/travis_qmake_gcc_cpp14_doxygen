@@ -18,4 +18,4 @@ script:
   - qmake
   - make
   - ./travis_qmake_gcc_cpp14_doxygen
-  - doxygen -g > /dev/null; ( cat Doxyfile ; echo "QUIET=YES"; echo "EXCLUDE=README.md" ; echo "WARN_AS_ERROR=YES") | doxygen -
+  - echo "/*! \\file */" >> main.cpp; doxygen -g > /dev/null; ( cat Doxyfile ; echo "QUIET=YES"; echo "EXCLUDE=README.md" ; echo "WARN_AS_ERROR=YES") | doxygen -
