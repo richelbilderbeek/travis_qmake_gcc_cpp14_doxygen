@@ -2,5 +2,6 @@
 
 int main() 
 {
-  std::cout << get_hello_world() << '\n';
+  std::cout << "Hello world\n";
 }
+/*! \file */
