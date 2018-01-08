@@ -1,13 +1,19 @@
-#include <cassert>
 #include <iostream>
 
-/// Get the 'Hello world' text
+class test
+{
+  test() {};
+  std::string get_hello_world() const noexcept
+  {
+    return "Hello world too";
+  }
+};
+
 std::string get_hello_world() noexcept
 {
   return "Hello world";
 }
 
-/// Show 'Hello world', followed by a newline
 int main() 
 {
   std::cout << get_hello_world() << '\n';

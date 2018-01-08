@@ -37,3 +37,5 @@ travis_qmake_gcc_cpp14_scan-build
 Makefile*
 travis_qmake_gcc_cpp14_codechecker
 results/
+html/
+latex/

@@ -33,4 +33,10 @@ Less complex builds:
 
  * [https://github.com/Ericsson/doxygen](https://github.com/Ericsson/doxygen)
 
+## How to force documentation
 
+In Doxyfile, set
+
+```
+doxygen -g > /dev/null; ( cat Doxyfile ; echo "QUIET=TRUE"; echo "EXCLUDE=README.md" ; echo "WARN_AS_ERROR=YES") | doxygen -
+```

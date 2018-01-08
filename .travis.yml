@@ -11,8 +11,11 @@ install:
   # C++14
   - sudo apt-get install -qq g++-5
   - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 90
+  # doxygen
+  - sudo apt-get install -qq doxygen graphviz
 
 script: 
   - qmake
   - make
   - ./travis_qmake_gcc_cpp14_doxygen
+  - doxygen -g > /dev/null; ( cat Doxyfile ; echo "QUIET=TRUE"; echo "EXCLUDE=README.md" ; echo "WARN_AS_ERROR=YES") | doxygen -
