@@ -22,7 +22,6 @@ install:
   - tar -zxvf doxygen-1.8.14.linux.bin.tar.gz
   - cd doxygen-1.8.14
   - ./configure
-  - make
   - sudo make install
   - cd ..
   - doxygen --version
