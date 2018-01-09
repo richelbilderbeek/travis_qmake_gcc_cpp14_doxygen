@@ -7,8 +7,8 @@ before_install:
   - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
   - sudo apt-get update -qq
   # Doxygen
-  #- sudo add-apt-repository -y ppa:libreoffice/ppa
-  #- sudo apt-get update -qq
+  - sudo add-apt-repository -y ppa:libreoffice/ppa
+  - sudo apt-get update -qq
 
 
 install: 
@@ -23,7 +23,7 @@ script:
   - qmake
   - make
   - ./travis_qmake_gcc_cpp14_doxygen
-  - echo "/*! \\file */" >> main.cpp; doxygen -g > /dev/null; ( cat Doxyfile ; echo "EXCLUDE=README.md" ; echo "SHOW_FILES=YES" ; echo "HIDE_IN_BODY_DOCS=NO") | doxygen -
+  - echo "/*! \\file */" >> main.cpp; doxygen -g > /dev/null; ( cat Doxyfile ; echo "QUIET=YES"; echo "EXCLUDE=README.md" ; echo "WARN_AS_ERROR=YES") | doxygen -
+  #- echo "/*! \\file */" >> main.cpp; doxygen -g > /dev/null; ( cat Doxyfile ; echo "EXCLUDE=README.md" ; echo "SHOW_FILES=YES" ; echo "HIDE_IN_BODY_DOCS=NO") | doxygen -
   # - echo "/** @file */" >> main.cpp; doxygen -g > /dev/null; ( cat Doxyfile ; echo "EXCLUDE=README.md") | doxygen -
   # - echo "/*! \\file */" >> main.cpp; doxygen -g > /dev/null; ( cat Doxyfile ; echo "EXCLUDE=README.md") | doxygen -
-  # - echo "/*! \\file */" >> main.cpp; doxygen -g > /dev/null; ( cat Doxyfile ; echo "QUIET=YES"; echo "EXCLUDE=README.md" ; echo "WARN_AS_ERROR=YES") | doxygen -
