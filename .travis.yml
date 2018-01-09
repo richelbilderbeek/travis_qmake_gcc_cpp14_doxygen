@@ -17,20 +17,21 @@ install:
   - sudo apt-get install -qq g++-5
   - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 90
   # doxygen
-  - sudo apt-get install -qq graphviz
-  - wget ftp://ftp.stack.nl/pub/users/dimitri/doxygen-1.8.14.linux.bin.tar.gz
-  - tar -zxvf doxygen-1.8.14.linux.bin.tar.gz
-  - cd doxygen-1.8.14
-  - ./configure
-  - sudo make install
-  - cd ..
-  - doxygen --version
+  - sudo apt-get install -qq doxygen graphviz
+  #- sudo apt-get install -qq graphviz
+  #- wget ftp://ftp.stack.nl/pub/users/dimitri/doxygen-1.8.14.linux.bin.tar.gz
+  #- tar -zxvf doxygen-1.8.14.linux.bin.tar.gz
+  #- cd doxygen-1.8.14
+  #- ./configure
+  #- sudo make install
+  #- cd ..
+  #- doxygen --version
 
 script: 
   - qmake
   - make
   - ./travis_qmake_gcc_cpp14_doxygen
-  - echo "/*! \\file */" >> main.cpp; doxygen -g > /dev/null; ( cat Doxyfile ; echo "QUIET=YES"; echo "EXCLUDE=README.md" ; echo "WARN_AS_ERROR=YES") | doxygen -
-  #- echo "/*! \\file */" >> main.cpp; doxygen -g > /dev/null; ( cat Doxyfile ; echo "EXCLUDE=README.md" ; echo "SHOW_FILES=YES" ; echo "HIDE_IN_BODY_DOCS=NO") | doxygen -
+  #- echo "/*! \\file */" >> main.cpp; doxygen -g > /dev/null; ( cat Doxyfile ; echo "QUIET=YES"; echo "EXCLUDE=README.md" ; echo "WARN_AS_ERROR=YES") | doxygen -
+  - echo "/*! \\file */" >> main.cpp; doxygen -g > /dev/null; ( cat Doxyfile ; echo "EXCLUDE=README.md" ; echo "SHOW_FILES=YES" ; echo "HIDE_IN_BODY_DOCS=NO") | doxygen -
   # - echo "/** @file */" >> main.cpp; doxygen -g > /dev/null; ( cat Doxyfile ; echo "EXCLUDE=README.md") | doxygen -
   # - echo "/*! \\file */" >> main.cpp; doxygen -g > /dev/null; ( cat Doxyfile ; echo "EXCLUDE=README.md") | doxygen -
