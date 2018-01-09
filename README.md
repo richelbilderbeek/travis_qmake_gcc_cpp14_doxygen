@@ -37,10 +37,18 @@ Less complex builds:
 
 Using [Stack Overflow](https://stackoverflow.com/a/12041646) to set the correct doxygen flags, in Doxyfile, set
 
+For doxygen 1.8.7, this workd:
+
+```
+doxygen -g > /dev/null; ( cat Doxyfile ; echo "QUIET=YES"; echo "EXCLUDE=README.md") | doxygen -
+```
+
+
+For doxygen 1.8.13, this works:
+
 ```
 doxygen -g > /dev/null; ( cat Doxyfile ; echo "QUIET=TRUE"; echo "EXCLUDE=README.md" ; echo "WARN_AS_ERROR=YES") | doxygen -
 ```
-
 
 
 ## Which PPA?
@@ -64,4 +72,5 @@ With this `.travis.yml`:
 ```
 
 Doxygen 1.8.7 is installed.
+
 

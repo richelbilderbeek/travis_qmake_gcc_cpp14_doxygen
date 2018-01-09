@@ -41,3 +41,5 @@ html/
 latex/
 Doxyfile
 Doxyfile.bak
+warnings.txt
+main_tmp.cpp
