@@ -1,6 +1,7 @@
 #include <iostream>
 
+/// Show 'Hello world' on the screen
 int main() 
 {
-  std::cout << "An undocumented function\n";
+  std::cout << "Hello world\n";
 }
