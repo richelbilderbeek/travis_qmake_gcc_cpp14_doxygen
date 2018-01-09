@@ -35,42 +35,24 @@ Less complex builds:
 
 ## How to force documentation
 
-Using [Stack Overflow](https://stackoverflow.com/a/12041646) to set the correct doxygen flags, in Doxyfile, set
-
-For doxygen 1.8.7, this workd:
+In all cases, the text below must be present in all files, otherwise Doxygen will not check these:
 
 ```
-doxygen -g > /dev/null; ( cat Doxyfile ; echo "QUIET=YES"; echo "EXCLUDE=README.md") | doxygen -
+/** @file */
 ```
 
-
-For doxygen 1.8.13, this works:
+For doxygen 1.8.7, to exit a script with an error code:
 
 ```
-doxygen -g > /dev/null; ( cat Doxyfile ; echo "QUIET=TRUE"; echo "EXCLUDE=README.md" ; echo "WARN_AS_ERROR=YES") | doxygen -
+doxygen -g > /dev/null; exit `(cat Doxyfile ; echo "QUIET=YES" ; echo "EXCLUDE=README.md") | doxygen - 2>&1 | egrep "warning" | wc --lines`
 ```
 
 
-## Which PPA?
-
-With this `.travis.yml`:
+For doxygen 1.8.13, to exit a script with an error code:
 
 ```
-  - sudo add-apt-repository -y ppa:libreoffice/ppa
-  - sudo apt-get install -qq doxygen graphviz
-  - doxygen --version
+doxygen -g > /dev/null; ( cat Doxyfile ; echo "QUIET=YES"; echo "EXCLUDE=README.md" ; echo "WARN_AS_ERROR=YES") | doxygen -
 ```
 
-Doxygen 1.8.7 is installed.
-
-With this `.travis.yml`:
-
-```
-  - sudo add-apt-repository -y ppa:libreoffice/libreoffice-prereleases
-  - sudo apt-get install -qq doxygen graphviz
-  - doxygen --version
-```
-
-Doxygen 1.8.7 is installed.
-
+Thanks to [this Stack Overflow post](https://stackoverflow.com/a/12041646).
 
