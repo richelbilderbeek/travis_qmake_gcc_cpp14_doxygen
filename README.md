@@ -35,7 +35,7 @@ Less complex builds:
 
 ## How to force documentation
 
-In Doxyfile, set
+Using [Stack Overflow](https://stackoverflow.com/a/12041646) to set the correct doxygen flags, in Doxyfile, set
 
 ```
 doxygen -g > /dev/null; ( cat Doxyfile ; echo "QUIET=TRUE"; echo "EXCLUDE=README.md" ; echo "WARN_AS_ERROR=YES") | doxygen -
