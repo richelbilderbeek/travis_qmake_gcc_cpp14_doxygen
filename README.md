@@ -31,7 +31,7 @@ Less complex builds:
 
 ## External links
 
- * [https://github.com/Ericsson/doxygen](https://github.com/Ericsson/doxygen)
+ * [doxygen GitHub](https://github.com/doxygen/doxygen)
 
 ## How to force documentation
 
