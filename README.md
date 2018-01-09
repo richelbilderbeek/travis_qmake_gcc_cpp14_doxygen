@@ -40,3 +40,28 @@ Using [Stack Overflow](https://stackoverflow.com/a/12041646) to set the correct 
 ```
 doxygen -g > /dev/null; ( cat Doxyfile ; echo "QUIET=TRUE"; echo "EXCLUDE=README.md" ; echo "WARN_AS_ERROR=YES") | doxygen -
 ```
+
+
+
+## Which PPA?
+
+With this `.travis.yml`:
+
+```
+  - sudo add-apt-repository -y ppa:libreoffice/ppa
+  - sudo apt-get install -qq doxygen graphviz
+  - doxygen --version
+```
+
+Doxygen 1.8.7 is installed.
+
+With this `.travis.yml`:
+
+```
+  - sudo add-apt-repository -y ppa:libreoffice/libreoffice-prereleases
+  - sudo apt-get install -qq doxygen graphviz
+  - doxygen --version
+```
+
+Doxygen 1.8.7 is installed.
+
